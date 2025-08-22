@@ -1,0 +1,66 @@
+<div class="container">
+  <h2>Список пользователей</h2>
+
+  <!-- Поле поиска -->
+  <div class="filters">
+    <div class="search-by-name-container">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        (input)="onSearchChange()"
+        placeholder="Поиск по имени..."
+        class="search-input"
+      >
+      <!-- Кнопка очистки поиска -->
+      @if (searchTerm) {
+        <i (click)="onSearchClear()"
+           class="search-clear-icon"
+           title="Очистить поиск">X
+        </i>
+      }
+    </div>
+
+
+    <!-- Выпадающий список для фильтрации -->
+    <select [(ngModel)]="statusFilter" (change)="onStatusChange()" class="status-select">
+      <option value="all">Все пользователи</option>
+      <option value="active">Только активные</option>
+      <option value="inactive">Только неактивные</option>
+    </select>
+  </div>
+
+  <!-- Список пользователей -->
+  <div class="user-list">
+    @for (user of filteredUsers; track user.id) {
+      <div
+        class="user-item"
+        [class.active]="user.isActive"
+        [class.inactive]="!user.isActive"
+        [class.selected]="user === selectedUser"
+        (click)="selectUser(user)"
+      >
+        <div class="user-item-header">
+          <h3>{{ user.name }}</h3>
+          <span class="status-badge">
+        {{ user.isActive ? 'Активен' : 'Неактивен' }}
+               </span>
+        </div>
+        <p>Email: {{ user.email }}</p>
+      </div>
+    }
+  </div>
+
+  <!-- Блок с email выбранного пользователя -->
+  @if (selectedUser) {
+    <div class="selected-email">
+      <h3>Email выбранного пользователя:</h3>
+      <p class="email-display">{{ selectedUser.email }}</p>
+    </div>
+  }
+
+  @if (filteredUsers.length === 0) {
+    <div class="no-results">
+      Пользователи не найдены
+    </div>
+  }
+</div>

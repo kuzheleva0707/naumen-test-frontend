@@ -1,0 +1,153 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.filters {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.search-by-name-container {
+  position: relative;
+  display: flex;
+  flex-grow: 2;
+  align-items: center;
+}
+
+.search-input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex: 1;
+  font-size: 16px;
+}
+
+.search-clear-icon {
+  position: absolute;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #f8f9fa;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 0;
+  font-style: normal;
+}
+
+.status-select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.user-item {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.user-item-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-item:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.user-item.active {
+  border-left: 4px solid #28a745;
+}
+
+.user-item.inactive {
+  border-left: 4px solid #dc3545;
+}
+
+.user-item.selected {
+  background: #f8f9fa;
+  border: 2px solid;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.user-item.active .status-badge {
+  background-color: #28a745;
+  color: white;
+}
+
+.user-item.inactive .status-badge {
+  background-color: #dc3545;
+  color: white;
+}
+
+.selected-email {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #e8f5e8;
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+}
+
+.email-display {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0;
+  padding: 10px;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-style: italic;
+  font-size: 18px;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h3 {
+  color: #343a40;
+  margin: 0 0 8px 0;
+}
+
+.user-item p {
+  margin: 0;
+  color: #6c757d;
+}
